@@ -44,7 +44,6 @@ namespace BRaynov.Api
                     builder
                     .WithOrigins(new string[0])
                     .AllowAnyHeader()
-                    .WithExposedHeaders("Content-Disposition")
                     .AllowAnyMethod()
                     .AllowCredentials();
                 });
