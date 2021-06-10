@@ -1,16 +1,12 @@
-﻿using Domain.Common.Interfaces;
-using System;
-using System.Linq.Expressions;
+﻿using Domain.Common.Models;
+using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class Author : IAuditable, IVersioned
+    public class Author : BaseEntity<int>
     {
-        public int Id { get; set; }
-        public byte[] RowVersion { get; set; }
-        public DateTimeOffset Created { get; set; }
-        public DateTimeOffset Modified { get; set; }
-        public int CreatedBy { get; set; }
-        public int ModifiedBy { get; set; }
+        public string Name { get; set; }
+        public ICollection<Profile> TranslatedProfiles { get; set; } = new List<Profile>();
+        public ICollection<Artwork> Artworks { get; set; } = new List<Artwork>();
     }
 }

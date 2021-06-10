@@ -1,2 +1,0 @@
-2021-06-02 16:18:12.426 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
-2021-06-02 16:18:13.241 +03:00 [ERR] Health check AppDbContext with status 1677.2312 completed after "Unhealthy"ms with message 'null'
