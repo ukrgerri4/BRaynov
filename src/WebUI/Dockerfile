@@ -7,11 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/WebUI/WebUI.csproj", "src/WebUI/"]
-COPY ["src/Application/Application.csproj", "src/Application/"]
-RUN dotnet restore "src/WebUI/WebUI.csproj"
+COPY ["WebUI/WebUI.csproj", "src/WebUI/"]
+COPY ["Application/Application.csproj", "src/Application/"]
+RUN dotnet restore "WebUI/WebUI.csproj"
 COPY . .
-WORKDIR "/src/src/WebUI"
+WORKDIR "/src/WebUI"
 RUN dotnet build "WebUI.csproj" -c Release -o /app/build
 
 FROM build AS publish
