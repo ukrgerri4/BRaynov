@@ -7,9 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["WebUI.csproj", "src/WebUI/"]
+COPY ["WebUI/WebUI.csproj", "src/WebUI/"]
 COPY ["Application/Application.csproj", "src/Application/"]
-RUN dotnet restore "WebUI.csproj"
+RUN dotnet restore "src/WebUI/WebUI.csproj"
 COPY . .
 WORKDIR "/src/WebUI"
 RUN dotnet build "WebUI.csproj" -c Release -o /app/build
@@ -17,7 +17,7 @@ RUN dotnet build "WebUI.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "WebUI.csproj" -c Release -o /app/publish
 
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebUI.dll"]
+FROM nginx:alpine AS final
+WORKDIR /usr/share/nginx/html
+COPY --from=publish /app/publish/wwwroot .
+COPY nginx.conf /etc/nginx/nginx.conf
