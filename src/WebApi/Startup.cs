@@ -30,10 +30,11 @@ namespace BRaynov.Api
 
             services.AddCors(options =>
             {
+                var origins = configuration.GetSection("Cors:Origins").Get<string[]>() ?? new string[0];
                 options.AddPolicy("CorsPolicy", builder =>
                 {
                     builder
-                    .WithOrigins(new string[0])
+                    .WithOrigins(origins)
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();

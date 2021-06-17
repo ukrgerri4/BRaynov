@@ -20,7 +20,17 @@ namespace Application.Logic.Books.Queries.GetAllBooks
 
         public async Task<GetAllBooksViewModel> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
         {
-			throw new NotImplementedException();
+            return new GetAllBooksViewModel
+            {
+                Books = new BookViewModel[]
+                {
+                    new BookViewModel { Name = "Book1" },
+                    new BookViewModel { Name = "Book2" },
+                    new BookViewModel { Name = "Book3" },
+                    new BookViewModel { Name = "Book4" },
+                    new BookViewModel { Name = "Book5" },
+                }
+            };
         }
     }
 }

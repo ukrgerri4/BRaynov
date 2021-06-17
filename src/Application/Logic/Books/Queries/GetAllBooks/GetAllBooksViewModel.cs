@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Logic.Books.Queries.GetAllBooks
+﻿namespace Application.Logic.Books.Queries.GetAllBooks
 {
     public class GetAllBooksViewModel
     {
+        public BookViewModel[] Books { get; set; }
+    }
+
+    public class BookViewModel
+    {
+        public string Name { get; set; }
     }
 }

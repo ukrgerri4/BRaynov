@@ -6,8 +6,6 @@ using WebApi.Controllers.Common;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class BooksController : BaseController
     {
         public BooksController(IMediator mediator) : base(mediator) { }

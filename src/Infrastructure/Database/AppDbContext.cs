@@ -1,6 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Common.Interfaces;
 using Domain.Entities;
+using Domain.Entities.Implementations;
 using Infrastructure.Database.Entities;
 using Infrastructure.Identity;
 using Infrastructure.Interfaces;
